@@ -77,5 +77,6 @@
   "allBehaviors": "Make sure all sprites have a behavior.",
   "sunDidntRotate": "The sun sprite didn't spin. Try a different behavior.",
   "cloudDidntMove": "The cloud sprite didn't move. Try a different behavior.",
-  "butterflyDidntMove": "The butterfly sprite didn't move. Try a different behavior."
+  "butterflyDidntMove": "The butterfly sprite didn't move. Try a different behavior.",
+  "spriteMovedTooSoon": "The sprite moved too soon. Try moving the behavior underneath a <xml><block type=\"gamelab_atTime\"><title name=\"UNIT\">\"seconds\"</title><value name=\"N\"><block type=\"math_number\"><title name=\"NUM\">8</title></block></value></block></xml> block."
 }
