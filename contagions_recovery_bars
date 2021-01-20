@@ -11,14 +11,11 @@ for (var i = 0; i < spriteIds.length; i++) {
       spriteRecovery=recoveryTime;
     }
     push();
-    stroke("white");
     stroke("black");
     strokeWeight(1);
-    fill("#dd228e");
     fill("white");
     rect(spriteX-(spriteScale/4),spriteY-(spriteScale/2)-10, spriteScale/2,5);
-    fill("#8e7cc4");
-    fill("#49fb35");
+    fill("#49fb35");//neon green
     rect(spriteX-(spriteScale/4),spriteY-(spriteScale/2)-10, spriteScale*spriteRecovery/(recoveryTime*2),5);
     pop();
   }
