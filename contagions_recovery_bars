@@ -7,13 +7,19 @@ for (var i = 0; i < spriteIds.length; i++) {
     var spriteY=400-getProp({id: spriteIds[i]}, "y");
     var spriteScale=getProp({id: spriteIds[i]}, "scale");
     var spriteRecovery=getProp({id: spriteIds[i]}, "recovery");
+    if (spriteRecovery===0){
+      spriteRecovery=recoveryTime;
+    }
     push();
     stroke("white");
+    stroke("black");
     strokeWeight(1);
     fill("#dd228e");
-    rect(spriteX-(spriteScale/4),spriteY+(spriteScale/2), spriteScale/2,5);
+    fill("white");
+    rect(spriteX-(spriteScale/4),spriteY-(spriteScale/2)-10, spriteScale/2,5);
     fill("#8e7cc4");
-    rect(spriteX-(spriteScale/4),spriteY+(spriteScale/2), spriteScale*spriteRecovery/400,5);
+    fill("#49fb35");
+    rect(spriteX-(spriteScale/4),spriteY-(spriteScale/2)-10, spriteScale*spriteRecovery/(recoveryTime*2),5);
     pop();
   }
 }
