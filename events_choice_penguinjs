@@ -1,0 +1,131 @@
+//1. Must have == 1 sprites
+var starterSprites = false;
+
+//2. User must press an arrow key
+var pressedKey = false;
+
+//3. X and Y must each change while a key is pressed.
+/*var xIncrease= false;
+var xDecrease= false;
+var yIncrease= false;
+var yDecrease= false;*/
+
+//Helper variables
+var spriteIds = getSpriteIdsInUse();
+var animations = getAnimationsInUse();
+var keyPressedNow = keyDown("up")||keyDown("down")||keyDown("left")||keyDown("right");
+
+//Check for sprites
+if(spriteIds.length >= 1){
+  starterSprites=true;
+}
+
+//Check for ever pressing key
+if(!validationProps.pressedKey){
+  validationProps.pressedKey= keyPressedNow;
+}
+pressedKey=validationProps.pressedKey;
+
+//Store initial props
+if(!validationProps.x){
+  validationProps.x=getProp({id: spriteIds[0]}, "x");
+  validationProps.y=getProp({id: spriteIds[0]}, "y");
+}
+
+//check for change
+if(validationProps.x!=getProp({id: spriteIds[0]}, "x")||validationProps.y!=getProp({id: spriteIds[0]}, "y")){
+
+  if(keyPressedNow){
+    console.log("keydown");
+    if(validationProps.x>getProp({id: spriteIds[0]}, "x")){
+       validationProps.xDecrease=true;
+      console.log("x decreased");
+    }
+    if(validationProps.x<getProp({id: spriteIds[0]}, "x")){
+       validationProps.xIncrease=true;
+      console.log("x increased");
+    }
+    if(validationProps.y>getProp({id: spriteIds[0]}, "y")){
+       validationProps.yDecrease=true;
+      console.log("y decreased");
+    }
+    if(validationProps.y<getProp({id: spriteIds[0]}, "y")){
+       validationProps.yIncrease=true;
+      console.log("y increased");
+    }
+  } else {
+    validationProps.x=getProp({id: spriteIds[0]}, "x");
+    validationProps.y=getProp({id: spriteIds[0]}, "y");
+  }
+}
+
+var failTime=300;
+
+
+
+  // Check criteria and give failure feedback
+if (!starterSprites) {
+  console.log("It looks like you removed a remove sprite. You can add it back from the **Sprites** toolbox or reset your program using the Version History button below.");
+  levelFailure(3, "starterSprites");
+} 
+
+var success=false;
+if(validationProps.xIncrease || validationProps.xDecrease || validationProps.yIncrease || validationProps.yDecrease){
+  var spriteMoved = true;
+}
+var success = validationProps.xIncrease && validationProps.xDecrease && validationProps.yIncrease && validationProps.yDecrease;
+
+
+//console.log(validationProps.xIncrease + " " + validationProps.xDecrease + " " + validationProps.yIncrease + " " + validationProps.yDecrease);
+if(success&&!validationProps.successTime){
+  validationProps.successTime=World.frameCount;
+}
+
+
+//Fail at 10 seconds if sprite hasn't move correctly in any direction
+if (!spriteMoved && World.frameCount > failTime) {
+  if(pressedKey){
+    console.log("Your sprite isn't moving as you hold the key down. Change when to while. ");
+    levelFailure(3, "useWhile");
+  } else {
+    console.log("Don't forget to hold the arrow keys down to make the sprite move.");
+    levelFailure(3,"didntPressKey");
+  }
+} else if (World.frameCount > failTime) {
+  if(!validationProps.yIncrease){
+    console.log("sprite didn't move up");
+    levelFailure(3,"debug1");
+  } else if(!validationProps.yDecrease){
+    console.log("sprite didn't move down");
+    levelFailure(3,"debug2");
+  } else if(!validationProps.xDecrease){
+    console.log("sprite didn't move left");
+    levelFailure(3,"debug3");
+  } else if(!validationProps.xIncrease){
+    console.log("sprite didn't move right");
+    levelFailure(3,"debug1");
+  }
+}
+
+
+//Pass 100 frames after success
+var waitTime=100;
+console.log(World.frameCount-validationProps.successTime);
+if (World.frameCount-validationProps.successTime >= waitTime) {
+    console.log("Generic success");
+    levelFailure(0, "genericSuccess");
+  }
+
+
+
+//Timer
+push();
+
+if(!success){
+  fill(rgb(118,102,160));
+  rect(0,390,(World.frameCount*400/failTime),10);
+} else {
+   fill(rgb(0,173,188));
+  rect(0,390,((World.frameCount-validationProps.successTime)*400/waitTime),10);
+}
+pop();
