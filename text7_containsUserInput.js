@@ -63,7 +63,7 @@ for (var i = 0; i < printLog.length; i++) {
 
 //Set the successTime the first time they've passed the two main criteria
 if(validationProps.successCriteria.answeredPrompt&&validationProps.successCriteria.containsInput&&!validationProps.successTime){
-  console.log(World.frameCount);
+  //console.log(World.frameCount);
   validationProps.successTime=World.frameCount;
 }
 
@@ -71,19 +71,19 @@ if(validationProps.successCriteria.answeredPrompt&&validationProps.successCriter
 if (!validationProps.successTime && World.frameCount > failTime) {
   if (!validationProps.successCriteria.madePrompt) {
     console.log('didntmakeprompt');
-    levelFailure(3, 'topLeft');
+    levelFailure(3, 'addPrompt');
   } else if (!validationProps.successCriteria.answeredPrompt) {
     console.log('did not answer prompt');
-    levelFailure(3, 'topRight');
+    levelFailure(3, 'answerPrompt');
   } else if (!validationProps.successCriteria.printedText) {
     console.log('did not print');
-    levelFailure(3, 'bottomLeft');
+    levelFailure(3, 'addPrintBlock');
   } else if (!validationProps.successCriteria.logIncreased) {
     console.log('didnt use event');
-    levelFailure(3, 'debugEvents');
+    levelFailure(3, 'printWhenAnswered');
   } else if (!validationProps.successCriteria.containsInput) {
     console.log('did not print user text');
-    levelFailure(3, 'bottomRight');
+    levelFailure(3, 'printVariable');
   }
 }
 
