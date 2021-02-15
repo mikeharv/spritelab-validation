@@ -38,10 +38,10 @@ var failTime = 300;
 if (!validationProps.successTime && World.frameCount > failTime) {
   if (!validationProps.successCriteria.printedText) {
     console.log('didnt print text');
-    levelFailure(3, 'debug1');
+    levelFailure(3, 'addPrintBlock');
   } else if (!validationProps.successCriteria.logIncreased) {
     console.log('did not use events');
-    levelFailure(3, 'debug2');
+    levelFailure(3, 'printWithEvent');
   }
 }
 
