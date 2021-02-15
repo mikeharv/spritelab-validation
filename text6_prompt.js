@@ -53,10 +53,10 @@ if(validationProps.successCriteria.answeredPrompt&&!validationProps.successTime)
 if (!validationProps.successTime && World.frameCount > failTime) {
   if (!validationProps.successCriteria.madePrompt) {
     console.log('didntmakeprompt');
-    levelFailure(3, 'topLeft');
+    levelFailure(3, 'addPrompt');
   } else if (!validationProps.successCriteria.answeredPrompt) {
     console.log('did not answer prompt');
-    levelFailure(3, 'topRight');
+    levelFailure(3, 'answerPrompt');
   }
 }
 
