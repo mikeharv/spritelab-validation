@@ -93,7 +93,7 @@ if (!validationProps.successTime) {
   }
 }
 
-var failTime = 100;
+var failTime = 300;
 if (!validationProps.successTime && World.frameCount > failTime) {
   if (!validationProps.successCriteria.anyKeyPress) {
     console.log('did not press a key');
@@ -153,3 +153,13 @@ if (World.frameCount - validationProps.successTime >= waitTime) {
   console.log('Generic success');
   levelFailure(0, 'genericSuccess');
 }
+
+push();
+if(!validationProps.successTime){
+  fill(rgb(118,102,160));
+  rect(0,390,(World.frameCount*400/failTime),10);
+} else {
+   fill(rgb(0,173,188));
+  rect(0,390,((World.frameCount-validationProps.successTime)*400/waitTime),10);
+}
+pop();
