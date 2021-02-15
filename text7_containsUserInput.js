@@ -45,10 +45,10 @@ if(printLog.length){
   if(printLog.length>validationProps.previous.logLength){
     validationProps.successCriteria.logIncreased=true;
   }
-  validationProps.previous = {
-    logLength: printLog.length
-  };
 }
+validationProps.previous = {
+  logLength: printLog.length
+};
 
 //go through all the printed text and all prompts to see if they ever printed the text entered
 for (var i = 0; i < printLog.length; i++) {
