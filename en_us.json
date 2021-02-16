@@ -102,5 +102,6 @@
   "printMoreText": "This is a good start. Keep adding more text to finish the level.",
   "addTitleScreen": "You need to add a title screen to your project.",
   "hideTitleScreen": "You added a title screen but it never went away. Use the `hide title screen` block under an event block, like `at 3 seconds` or `when up pressed`.",
-  "useColorVariable": "Use the variable to set the background color when the prompt is answered."
+  "useColorVariable": "Use the variable to set the background color when the prompt is answered.",
+  "addSpaces": "The printed message is missing some spaces. Can you figure out where to add them?"
 }
