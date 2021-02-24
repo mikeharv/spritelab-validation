@@ -94,7 +94,7 @@
   "addPrompt": "You need to add the prompt block to your code: \n <xml><block type=\"gamelab_setPrompt\"><value name=\"QUESTION\"><block type=\"text\" can_disconnect_from_parent=\"false\"><title name=\"TEXT\">...</title></block></value><value name=\"VAR\"><block type=\"variables_get\" can_disconnect_from_parent=\"false\"><title name=\"VAR\">???</title></block></value></block></xml>",
   "answerPrompt": "Don't forget to type something into your prompt!",
   "addPrintBlock": "You need to add a print block to your code:  \n <xml><block type=\"gamelab_printText\"><value name=\"TEXT\"><block type=\"text\"><title name=\"TEXT\"></title></block></value></block></xml>",
-  "printWhenAnswered": "You printed text, but not at the right time. Make sure the `print` block is under a `when answered` block: <xml><block type=\"gamelab_whenPromptAnswered\"><value name=\"VAR\"><block type=\"variables_get\" can_disconnect_from_parent=\"false\"><title name=\"VAR\">answer</title></block></value></block></xml>",
+  "printWhenAnswered": "You printed text, but not at the right time. Make sure the `print` block is under a `when answered` block: <xml><block type=\"gamelab_whenPromptAnswered\"><value name=\"VAR\"><block type=\"variables_get\" can_disconnect_from_parent=\"false\"><title name=\"VAR\">???</title></block></value></block></xml>",
   "printWithEvent": "Make sure a `print` block is under an event block, like `at 3 seconds` or `when up pressed`.",
   "printVariable": "You printed text at the right time, but it didn't print what you typed into the prompt. Make sure the right **variable** label is connected to your `print` block.",
   "addJoinBlocks": "You are printing the exact text you entered. Try adding some other text to it using the join blocks.",
