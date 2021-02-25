@@ -74,19 +74,6 @@ if (World.frameCount > failTime) {
 }
 
 
-    push();
-	var array=getBehaviorsForSpriteId(spriteIds[0]);
-	textAlign(LEFT, TOP);
-	textSize(20);
-	noStroke();
-	text("Current Behaviors:",10,25);
-	for(var i=0;i<array.length;i++){
-      text(array[i],10,50+i*25);
-	}
-	pop();
- 
-
-
 
 
 //Pass 100 frames after success
