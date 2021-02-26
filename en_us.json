@@ -90,7 +90,7 @@
   "didntMoveDown": "Your sprite did not move down.",
   "didntMoveLeft": "Your sprite did not move left.",
   "didntMoveRight": "Your sprite did not move right.",
-  "whenToWhile": "Your sprite is moving in all directions, but not smoothly. Change `when` to `while` in each event block. \n <xml><xml><block type=\"gamelab_keyPressed\"><title name=\"CONDITION\">while</title><title name=\"KEY\">???</title></block></xml></xml>",
+  "whenToWhile": "Your sprite is moving in all directions, but not smoothly. Change `when` to `while` in each event block. \n <xml><block type=\"gamelab_keyPressed\"><title name=\"CONDITION\">while</title><title name=\"KEY\">???</title></block></xml>",
   "addPrompt": "You need to add the prompt block to your code: \n <xml><block type=\"gamelab_setPrompt\"><value name=\"QUESTION\"><block type=\"text\" can_disconnect_from_parent=\"false\"><title name=\"TEXT\">...</title></block></value><value name=\"VAR\"><block type=\"variables_get\" can_disconnect_from_parent=\"false\"><title name=\"VAR\">???</title></block></value></block></xml>",
   "answerPrompt": "Don't forget to type something into your prompt!",
   "addPrintBlock": "You need to add a print block to your code:  \n <xml><block type=\"gamelab_printText\"><value name=\"TEXT\"><block type=\"text\"><title name=\"TEXT\"></title></block></value></block></xml>",
