@@ -159,6 +159,6 @@
   "startBehaviorWhenClicked": "Your new sprite needs to start a behavior when it is clicked.",
   "clickNewSprite": "Make sure you click on your new sprite and that it also has a `when clicked` event in your workspace.",
   "colorChangedBeforeKeyPress": "Your sprite changed color at the wrong time. Move the `change color` block under a `when key pressed` block.",
-  "keyPressButNoEvent": "Add this block to your workspace:<XML><block type=\"gamelab_keyPressed\"><title name=\"CONDITION\">\"when\"</title><title name=\"KEY\">\"up\"</title></block></XML>",
+  "keyPressButNoEvent": "Make sure this block is in your workspace:<XML><block type=\"gamelab_keyPressed\"><title name=\"CONDITION\">\"when\"</title><title name=\"KEY\">\"up\"</title></block></XML>",
   "changeColorWhenKeyPressed": "A sprite should change colors. Add this block to your new event: <XML><block type=\"gamelab_setTint\"><value name=\"THIS\"><block type=\"gamelab_allSpritesWithAnimation\"><title name=\"ANIMATION\">\"blue alien\"</title></block></value><value name=\"COLOR\"><block type=\"colour_picker\"><title name=\"COLOUR\">#ff0000</title></block></value></block></XML>"
 }
