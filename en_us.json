@@ -166,6 +166,6 @@
   "noSpriteStoppedMoving": "None of your sprites have stopped moving. Connect a `stops everything` block under the new event.",
   "atLeastOneSpriteStillMoving": "At least one of your sprites was still moving. Make sure you have a `stops everything` block for each sprite.",
   "spritesNotTouch": "Make sure your sprites touch at some point.",
-  "addWhenTouchesEvent": "Add this block to your workspace:\n<xml><block type=\"gamelab_checkTouching\"><title name=\"CONDITION\">\"when\"</title><value name=\"SPRITE1\"><block type=\"gamelab_allSpritesWithAnimation\"><title name=\"ANIMATION\">\"blue alien\"</title></block></value><value name=\"SPRITE2\"><block type=\"gamelab_allSpritesWithAnimation\"><title name=\"ANIMATION\">\"pink alien\"</title></block></value></block></xml>",
+  "addWhenTouchesEvent": "You need to have a `when touches` block for any of your sprites that will touch. \n<xml><block type=\"gamelab_checkTouching\"><title name=\"CONDITION\">\"when\"</title><value name=\"SPRITE1\"><block type=\"gamelab_allSpritesWithAnimation\"><title name=\"ANIMATION\">\"blue alien\"</title></block></value><value name=\"SPRITE2\"><block type=\"gamelab_allSpritesWithAnimation\"><title name=\"ANIMATION\">\"pink alien\"</title></block></value></block></xml>",
   "changeSpriteBehaviorsWhenTouch": "A sprite needs to change behavior when two sprites touch."
 }
