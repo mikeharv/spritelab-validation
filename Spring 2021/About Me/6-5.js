@@ -78,7 +78,7 @@ validationProps.previous.printLogLength = printLog.length;
 
 // Set success time if success
 if (validationProps.successCriteria.threeSprites &&
-    validationProps.successCriteria.threeSpriteClickCausesPrint &&
+    validationProps.successCriteria.numSpriteClicksCausePrint>=3 &&
    !validationProps.successTime)
 {
   validationProps.successTime = World.frameCount;
@@ -131,8 +131,7 @@ if (World.frameCount - validationProps.successTime >= waitTime) {
 
 push();
 stroke("white");
-if (!validationProps.successCriteria.threeSprites ||
-    !validationProps.successCriteria.threeSpriteClickCausesPrint) {
+if (validationProps.successCriteria.numSpriteClicksCausePrint<3) {
 fill(rgb(118,102,160));
 rect(0,390,(World.frameCount*400/failTime),10);
 } else {
