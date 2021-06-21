@@ -13,10 +13,10 @@ if (!validationProps.successCriteria) {
 var spriteIds = getSpriteIdsInUse();
 
 for (var i = 0; i < spriteIds.length; i++) {
-  if(getProp({ id: spriteId }, "speech");){  
+  if(getProp({ id: spriteId }, "speech")){  
     validationProps.successCriteria.usedSpeech = true;
   }
-  if(getProp({ id: spriteId }, "timeOut");){  
+  if(getProp({ id: spriteId }, "timeOut")){  
     validationProps.activeSpeech = true;
   }
 }
