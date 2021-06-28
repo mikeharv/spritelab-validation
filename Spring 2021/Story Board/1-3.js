@@ -13,34 +13,41 @@ if (!validationProps.successCriteria) {
 var spriteIds = getSpriteIdsInUse();
 
 for (var i = 0; i < spriteIds.length; i++) {
-  if(getProp({ id: spriteId }, "speech")){  
+  if(getProp({ id: i }, "speech")){  
     validationProps.successCriteria.usedSpeech = true;
   }
-  if(getProp({ id: spriteId }, "timeOut")){  
+  if(getProp({ id: i }, "timeOut")){  
     validationProps.activeSpeech = true;
   }
 }
 
 
 // Check if this is the first frame that meets the success criteria
-if (!validationProps.successTime&&validationProps.successCriteria.printedText) {
+if (!validationProps.successTime&&validationProps.successCriteria.usedSpeech) {
   validationProps.successTime = World.frameCount;
   //console.log(validationProps.successTime);
 }
 
-var failTime = 10;
-if(!validationProps.successCriteria.printedText){
-  console.log("Did not use speech");
-  levelFailure(3, 'addPrintBlock');
+var failTime = 30;
+if(World.frameCount > failTime){
+  if(!validationProps.successCriteria.usedSpeech){
+    console.log("Did not use speech");
+    levelFailure(3, 'addPrintBlock');
+  } else {
+    console.log(validationProps);
+  }
 }
-var waitTime = 100;
-if (World.frameCount - validationProps.successTime >= waitTime && !validationProps.activeSpeech) {
+var waitTime = 130;
+if ((World.frameCount - validationProps.successTime >= waitTime) && !validationProps.activeSpeech) {
   console.log('Generic success');
   levelFailure(0, 'genericSuccess');
 }
 
 push();
-if(validationProps.successTime){
+if(!validationProps.successTime){
+  fill(rgb(118, 102, 160));
+  rect(0, 390, (World.frameCount * 400) / failTime, 10);
+} else {
    fill(rgb(0,173,188));
   rect(0,390,((World.frameCount-validationProps.successTime)*400/waitTime),10);
 }
