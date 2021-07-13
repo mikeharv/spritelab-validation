@@ -1,34 +1,61 @@
-//Story-board - working as needed
-
 if (!validationProps.successCriteria) {
   validationProps.successCriteria = {
-    twoSprites: false,
-    differentLocations: false
+    starterSprite: false,
+    usedSpeech: false,
+    activeSpeech: false
   };
 }
 
 //Helper variables
 var spriteIds = getSpriteIdsInUse();
-var animations = getAnimationsInUse();
 
-// Count Sprites
-if(!validationProps.successCriteria.twoSprites){
-  validationProps.successCriteria.twoSprites = spriteIds.length >= 2;
-}
+//Count Sprites
+validationProps.successCriteria.starterSprite = spriteIds.length>=1;
 
-//Check sprite locations
-if(validationProps.successCriteria.twoSprites){
-  if (getProp({id: spriteIds[0]}, "x")!=getProp({id: spriteIds[1]}, "x") || getProp({id: spriteIds[0]}, "y")!=getProp({id: spriteIds[1]}, "y")) {
-    validationProps.successCriteria.differentLocations=true;
+//Check if a sprite has active speech
+for (var spriteId in spriteIds) {
+  if(getProp({ id: spriteId }, "speech")){  
+    validationProps.successCriteria.usedSpeech = true;
+    if(getProp({ id: spriteId }, "timeOut")>0){
+      validationProps.successCriteria.activeSpeech = true;
+    } else {
+      validationProps.successCriteria.activeSpeech = false;
+    }
   }
 }
 
-
-  // Check criteria and give failure feedback
-if (!validationProps.successCriteria.twoSprites) {
-  levelFailure(3, "moreSprites");
-} else if (!validationProps.successCriteria.differentLocations) {
-  levelFailure(3, "changeLocation");
-} else {
-  levelFailure(0, "genericExplore");
+// Set success time if success
+if (validationProps.successCriteria.starterSprite &&
+    validationProps.successCriteria.usedSpeech &&
+    !validationProps.successTime) {
+  validationProps.successTime = World.frameCount;
 }
+
+var failTime = 10;
+// Check criteria and give failure feedback
+if (World.frameCount > failTime) {
+  if (!validationProps.successCriteria.starterSprite) {
+    levelFailure(3, "noSprites");
+  } else if (!validationProps.successCriteria.usedSpeech) {
+    levelFailure(3, "sayBlock");
+  } 
+}
+
+// Pass 60 frames after success
+var waitTime = 60;
+if (World.frameCount - validationProps.successTime >= waitTime) {
+  levelFailure(0, "genericSuccess");
+}
+
+push();
+stroke("white");
+if (!validationProps.successCriteria.starterSprite ||
+    !validationProps.successCriteria.usedSpeech ||
+    validationProps.successCriteria.activeSpeech) {
+  fill(rgb(118,102,160));
+  rect(0,390,(World.frameCount*400/failTime),10);
+} else {
+  fill(rgb(0,173,188));
+  rect(0,390,((World.frameCount-validationProps.successTime)*400/waitTime),10);
+}
+pop();
