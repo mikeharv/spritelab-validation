@@ -219,6 +219,5 @@
   "poemBotSuccessLevel10": "Congratulations! You completed Level 10."
   "allSayBlocks": "Make sure each sprite uses a `say` block. <xml><block type=\"gamelab_spriteSay\"><title name=\"SPEECH\">Hello, world!</title><value name=\"SPRITE\"><block type=\"gamelab_allSpritesWithAnimation\"><title name=\"ANIMATION\">\"default\"</title></block></value></block></xml>",
   "clickAnySprite": "Make sure to click on any sprite after pressing `Run`.",
-  "poemBotSuccessTextEvent": "Great job changing your text effect with an event! Click 'Keep Playing' to try changing the foreground or background effect."
   "poemBotSuccessEffectWithEvent": "Congratulations, you added an effect to your code! You can click 'Keep playing' to add even more effects."
 }
