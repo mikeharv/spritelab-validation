@@ -1,4 +1,14 @@
 language: ruby
+
 rvm:
- - 2.2
- - jruby
+  - 2.5.5
+
+services:
+  - postgresql
+
+before_script:
+  - bin/rails db:create
+  - bin/rails db:migrate
+
+script:
+  - bin/rails test
